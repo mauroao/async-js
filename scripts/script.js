@@ -1,6 +1,6 @@
 function callUF() {
 	return $.ajax({
-		url: 'uf.json.txt',
+		url: 'data/uf.json.txt',
 		type: 'GET',
 		dataType: 'json',
 		cache: false
@@ -9,7 +9,7 @@ function callUF() {
 
 function callMunicipios() {
 	return $.ajax({
-		url: 'municipios.json.txt',
+		url: 'data/municipios.json.txt',
 		type: 'GET',
 		dataType: 'json',
 		cache: false
