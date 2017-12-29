@@ -1,0 +1,13 @@
+[{
+	"UF": "SP",
+	"cidade": "Sao Paulo"
+}, {
+	"UF": "RJ",
+	"cidade": "Rio de Janeiro"
+}, {
+	"UF": "SP",
+	"cidade": "Santos"
+}, {
+	"UF": "RJ",
+	"cidade": "Angra dos Reis"
+}]
