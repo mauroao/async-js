@@ -1,25 +1,42 @@
 function callUF() {
-	return $.ajax({
+	var def = $.Deferred();
+
+	$.ajax({
 		url: 'data/uf.json.txt',
 		type: 'GET',
 		dataType: 'json',
 		cache: false
+	})
+	.done(function(data) {
+		def.resolve(data);
+	})
+	.fail(function(data) {
+		def.reject(data.responseText);
 	});
+
+	return def.promise();
 }
 
 function callMunicipios() {
-	return $.ajax({
+	var def = $.Deferred();
+
+	$.ajax({
 		url: 'data/municipios.json.txt',
 		type: 'GET',
 		dataType: 'json',
 		cache: false
+	})
+	.done(function(data) {
+		def.resolve(data);
+	})
+	.fail(function(data) {
+		def.reject(data.responseText);
 	});
+
+	return def.promise();	
 }
 
-function desenharTabelaMunicipios(municipiosResult, ufsResult) {
-
-	var municipios = municipiosResult[0];
-	var ufs = ufsResult[0];
+function desenharTabelaMunicipios(municipios, ufs) {
 	var output = '';
 
 	ufs.forEach(function(uf) {
@@ -37,12 +54,14 @@ function desenharTabelaMunicipios(municipiosResult, ufsResult) {
 	});
 }
 
+function exibirErro(err) {
+	$('div#result').html(err);
+}
+
 $(document).ready(function() {
-	
 	$('button').click(function() {
-		$.when(
-			callMunicipios(), 
-			callUF())
-		.done(desenharTabelaMunicipios);
+		$.when(callMunicipios(), callUF())
+		.done(desenharTabelaMunicipios)
+		.fail(exibirErro);
 	});	
 });
