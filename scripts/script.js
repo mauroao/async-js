@@ -2,7 +2,7 @@ function callUF() {
 	var def = $.Deferred();
 
 	$.ajax({
-		url: 'data/uf.json.txt',
+		url: 'data/uf.json',
 		type: 'GET',
 		dataType: 'json',
 		cache: false
@@ -21,7 +21,7 @@ function callMunicipios() {
 	var def = $.Deferred();
 
 	$.ajax({
-		url: 'data/municipios.json.txt',
+		url: 'data/municipios.json',
 		type: 'GET',
 		dataType: 'json',
 		cache: false
