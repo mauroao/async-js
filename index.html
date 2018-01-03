@@ -3,15 +3,31 @@
 <head>
 	<title>Teste com Jquery Ajax e When</title>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">	
-	<link rel="stylesheet" type="text/css" href="css/style.css">	
-	<script type="text/javascript" src="scripts/jquery.js"></script>
-	<script type="text/javascript" src="scripts/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- libs -->
+	<script type="text/javascript" src="lib/jquery.js"></script>
+	<script type="text/javascript" src="lib/Rx.js"></script>
+
+	<!-- source -->
+	<script type="text/javascript" src="js/ajax-service.js"></script>
+	<script type="text/javascript" src="js/jquery-deferred-service.js"></script>
+	<script type="text/javascript" src="js/promise-service.js"></script>
+	<script type="text/javascript" src="js/rx-service.js"></script>
+	<script type="text/javascript" src="js/ui.js"></script>
+
+	<!--main-->
+	<script type="text/javascript" src="js/main.js"></script>
 
 </head>
 <body>
-	<h1>Teste com jQuery ajax e when</h1>
-	<p>Clique no botão abaixo para fazer duas chamadas AJAX</p>
-	<p><button>Testar</button></p>
+	<h1>Testes com programacão assíncrona em javascript</h1>
+	<p>Clique em um dos botões abaixo para fazer duas chamadas AJAX (cidades e ufs), e trazer o resultado somente quando as duas chamadas finalizarem.</p>
+	<p>
+			<button id="btn-deferred">Testar $.Deferred() $.when()</button>
+			<button id="btn-promise">Testar ES6 Promise</button>
+			<button id="btn-rxjs">Testar RxJs</button>
+	</p>
 	<hr>
 	<p>Resultado:</p>
 	<div id="result"></div>
