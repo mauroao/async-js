@@ -54,6 +54,10 @@ function desenharTabelaMunicipios(municipios, ufs) {
 	});
 }
 
+function exibirConcluido() {
+	$('div#result').append($('<p>concluido</p>'));	
+}
+
 function exibirErro(err) {
 	$('div#result').html(err);
 }
@@ -62,6 +66,7 @@ $(document).ready(function() {
 	$('button').click(function() {
 		$.when(callMunicipios(), callUF())
 		.done(desenharTabelaMunicipios)
-		.fail(exibirErro);
+		.fail(exibirErro)
+		.always(exibirConcluido);
 	});	
 });
